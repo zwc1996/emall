@@ -1,11 +1,13 @@
-package com.emall.dao;
+package com.emall.service.iservice;
 
+import com.emall.common.ResponseCode;
 import com.emall.pojo.Cart;
-import com.emall.vo.CartProduct;
+import com.emall.vo.CartData;
 
-import java.util.List;
-
-public interface CartMapper {
+/**
+ * Created by zwc on 2017/11/28.
+ */
+public interface CartService {
     int deleteByPrimaryKey(Integer id);
 
     int insert(Cart record);
@@ -18,6 +20,5 @@ public interface CartMapper {
 
     int updateByPrimaryKey(Cart record);
 
-    List<CartProduct> getCartList(String username);
-
+    ResponseCode<CartData> getCartList(String username);
 }

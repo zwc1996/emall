@@ -116,4 +116,12 @@
       update_time = now()
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="getCartList" resultType="com.emall.vo.CartProduct" parameterType="java.lang.String">
+     select c.id id,c.user_id userId,c.product_id productId,c.quantity quantity,
+     p.name productName,p.subtitle productSubtitle,p.main_image productMainImage,
+     p.price productPrice,p.status productStatus,p.price*c.quantity productTotalPrice,
+     p.stock productStock,c.checked productChecked from mmall_cart c,mmall_product p,
+     (select id from mmall_user where username=#{username})u
+     where c.product_id=p.id and u.id=c.user_id
+  </select>
 </mapper>
