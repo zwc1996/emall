@@ -1,24 +1,23 @@
 package com.emall.service.iservice;
 
-import com.emall.common.ResponseCode;
-import com.emall.pojo.Cart;
-import com.emall.vo.CartData;
+import com.emall.common.ServerResponse;
+import com.emall.vo.CartVo;
 
 /**
- * Created by zwc on 2017/11/28.
+ * Created by zwc
  */
 public interface CartService {
-    int deleteByPrimaryKey(Integer id);
 
-    int insert(Cart record);
+    ServerResponse<CartVo> add(Integer userId, Integer productId, Integer count);
 
-    int insertSelective(Cart record);
+    ServerResponse<CartVo> update(Integer userId, Integer productId, Integer count);
 
-    Cart selectByPrimaryKey(Integer id);
+    ServerResponse<CartVo> deleteProduct(Integer userId, String productIds);
 
-    int updateByPrimaryKeySelective(Cart record);
 
-    int updateByPrimaryKey(Cart record);
+    ServerResponse<CartVo> list(Integer userId);
 
-    ResponseCode<CartData> getCartList(String username);
+    ServerResponse<CartVo> selectOrUnSelect(Integer userId, Integer productId, Integer checked);
+
+    ServerResponse<Integer> getCartProductCount(Integer userId);
 }

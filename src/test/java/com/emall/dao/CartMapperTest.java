@@ -17,6 +17,5 @@ public class CartMapperTest {
     private CartMapper cartMapper;
     @Test
     public void testGetCartList() throws Exception {
-        System.out.println(cartMapper.getCartList("scott"));
     }
 }

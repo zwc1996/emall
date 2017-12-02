@@ -18,6 +18,5 @@ public class CartImplTest {
     private CartService cartService;
     @Test
     public void testGetCartList() throws Exception {
-        System.out.println(cartService.getCartList("scott"));
     }
 }
